@@ -1,0 +1,111 @@
+/* General Page Styling */
+body {
+    font-family: 'Press Start 2P', monospace;
+    background-color: #000;
+    color: #68bee7;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    position: relative;
+}
+
+/* Main Game Container */
+.game-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.game-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.game-description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Styling for Game Buttons with Translucency */
+.game-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.game-btn {
+    font-family: 'Press Start 2P', monospace; /* Ensure text is in 'Press Start 2P' */
+    font-size: 1.5rem;
+    padding: 15px;
+    background-color: rgba(68, 68, 68, 0.6); /* Translucent background (60% opacity) */
+    color: rgb(61, 170, 194);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(26, 152, 231, 0.4);
+}
+
+.game-btn:hover {
+    background-color: rgba(85, 85, 85, 0.8); /* Darker when hovered, still translucent */
+    transform: scale(1.1);
+}
+
+.game-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Music Toggle Button Styling (Positioned at bottom-left) */
+#play-button {
+    width: 50px;
+    height: 50px;
+    background-color: #79b5da;
+    color: rgb(0, 45, 61);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 999;  /* Ensure it appears above other elements */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#play-button img {
+    width: 30px;
+    height: 30px;
+}
+
+#play-button:hover {
+    background-color: #215593;
+    transform: scale(1.1);
+}
+
+/* Background Styling */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.background-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}

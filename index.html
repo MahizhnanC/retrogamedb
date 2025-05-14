@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Retro Games Hub</title>
+    
+    <!-- Google Fonts for Press Start 2P -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="retro">
+    <!-- Background GIF -->
+    <div class="background">
+        <img src="assets/images/retro-background.gif" alt="Retro Background" class="background-gif">
+    </div>
+
+    <div class="game-container">
+        <p class="game-description">Choose your game:</p>
+        
+        <!-- Game Buttons -->
+        <div class="game-buttons">
+            <button class="game-btn" onclick="startGame('snake')" data-sound="click-sound.mp3">
+                <img src="assets/images/snake-game-icon.png" alt="Snake Game Icon" class="game-icon"> Snake Game
+            </button>
+            <button class="game-btn" onclick="startGame('tetris')" data-sound="click-sound.mp3">
+                <img src="assets/images/tetris-icon.png" alt="Tetris Icon" class="game-icon"> Tetris
+            </button>
+            <button class="game-btn" onclick="startGame('pong')" data-sound="click-sound.mp3">
+                <img src="assets/images/pong-icon.png" alt="Pong Icon" class="game-icon"> Pong
+            </button>
+        </div>
+    </div>
+
+    <!-- Music Toggle Button (with Icon) -->
+    <button id="play-button" style="display: none;" onclick="startBackgroundMusic()">
+        <img src="assets/images/music-icon.png" alt="Music Icon">
+    </button>
+
+    <!-- Background Music (set to autoplay when the page loads) -->
+    <audio id="game-music" loop>
+        <source src="assets/sounds/game-music.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        // Play sound on button click
+        function playClickSound(sound) {
+            const audio = new Audio('assets/sounds/' + sound);
+            audio.play();
+        }
+
+        // Start the game by navigating or embedding it
+        function startGame(game) {
+            const sound = event.currentTarget.getAttribute('data-sound');
+            playClickSound(sound); // Play button click sound
+            
+            const music = document.getElementById('game-music');
+            music.play(); // Start the background music if not playing
+            
+            // Redirect to game page or load game logic
+            if(game === 'snake') {
+                window.location.href = 'https://snakegame.net';  // Redirect to the Snake Game website
+            } else if(game === 'tetris') {
+                window.location.href = 'https://tetris.com/play-tetris';  // Redirect to Tetris
+            } else if(game === 'pong') {
+                window.location.href = 'https://ponggame.org';  // Redirect to Pong
+            }
+        }
+
+        // Start background music when the user interacts with the page
+        function startBackgroundMusic() {
+            const music = document.getElementById('game-music');
+            music.volume = 0.2;  // Set the volume to a lower level
+            music.play();
+            document.getElementById('play-button').style.display = 'none'; // Hide the play button after it's clicked
+        }
+
+        // Prompt the user to start background music on first click
+        window.onload = function() {
+            document.getElementById('play-button').style.display = 'inline-block'; // Show the play button
+        };
+    </script>
+</body>
+</html>
